@@ -53,6 +53,7 @@ JAVA_HOME=/path/to/jdk17 npm run apk
 | `android/app/src/main/assets/` | `cap sync` 的产物 | `npx cap sync android` |
 | `android/app/build/`、`android/.gradle/` | 构建缓存 | 构建时自动生成 |
 | `android/local.properties` | 机器相关路径 | 自己写 `sdk.dir` |
+| `android/capacitor-cordova-android-plugins/` | Capacitor 自带的 .gitignore 排除了它，`cap sync` 会重建 | `npx cap sync android`（`npm run apk` 已包含） |
 | `public/__dev/` | 一次性调试探针，会随代码演进而失效 | 需要时自己写 |
 
 除此之外都在仓库里，包括：
