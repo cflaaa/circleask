@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN" data-ui="phone">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+<title>圈问 · CircleAsk</title>
+
+<!-- 首帧防闪：先按上次的选择打上 data-ui，再由 bootstrap 校正 -->
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('ca.uiMode') || 'auto';
+      var touch = navigator.maxTouchPoints > 0 || 'ontouchstart' in window;
+      var shortSide = Math.min(screen.width || 1024, screen.height || 768);
+      var mode = saved !== 'auto' ? saved : (touch && shortSide >= 600 ? 'tablet' : 'phone');
+      document.documentElement.dataset.ui = mode;
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="stylesheet" href="/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="/src/ui/shared/base.css">
+<link rel="stylesheet" href="/src/ui/phone/phone.css">
+<link rel="stylesheet" href="/src/ui/tablet/tablet.css">
+<link rel="stylesheet" href="/src/ui/desktop/desktop.css">
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- pdf.js 用 UMD 版：目标机 WebView 72 跑不了 4.x（含大量 ?.）。
+       必须在 bootstrap 之前加载完，container 从 window.pdfjsLib 取。 -->
+  <script defer src="/vendor/pdf.min.js"></script>
+  <!-- KaTeX 用普通 script 加载：它是 UMD 包，挂到 window.katex -->
+  <script defer src="/vendor/katex/katex.min.js"></script>
+  <script type="module" src="/src/app/bootstrap.js"></script>
+</body>
+</html>

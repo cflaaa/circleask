@@ -1,0 +1,21 @@
+# 依赖
+node_modules/
+
+# 构建产物（npm run build:web 生成）
+dist/
+
+# Android 构建缓存与产物
+android/.gradle/
+android/app/build/
+android/local.properties
+
+# cap sync 会把 dist 拷进 assets，这是产物不是源码
+android/app/src/main/assets/
+
+# 开发探针页（一次性调试用）
+public/__dev/
+
+# 杂项
+*.log
+.DS_Store
+Thumbs.db

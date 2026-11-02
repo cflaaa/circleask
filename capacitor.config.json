@@ -1,0 +1,14 @@
+{
+  "appId": "com.circleask.next",
+  "appName": "圈问 Next",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": true
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}
